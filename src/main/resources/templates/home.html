@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Sun Laser Cutting Home Page</title>
+</head>
+<body>
+<h2>Sun Laser Cutting Home Page</h2>
+<hr>Welcome to Sun Laser Cutting Home Page!
+<hr>
+<p>
+    User : <span sec:authentication="principal.username"></span>
+    Role : <span sec:authentication="principal.authorities"></span>
+</p>
+<div sec:authorize="hasRole('ADMIN')">
+    <p>
+        <a th:href="@{/systems}">Systems Meeting</a>
+    </p>
+</div>
+<div sec:authorize="hasRole('MANAGER')">
+    <p>
+        <a th:href="@{/leaders}">Leadership Meeting</a>
+    </p>
+</div>
+<hr>
+<form action="#" th:action="@{/logout}" method="POST">
+<input type="submit" value="Logout"/>
+</form>
+</body>
+</html>
