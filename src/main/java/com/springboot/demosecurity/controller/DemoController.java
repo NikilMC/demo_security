@@ -15,7 +15,7 @@ public class DemoController {
     }
     @GetMapping("/systems")
     public String showSystems(){
-        return "systems"
+        return "systems";
     }
     @GetMapping("/showMyLoginPage")
     public String showMyLoginPage(){
